@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit Conversion Calculator</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+    <div class="unit">
+        <h1 class="title">Unit Conversion Calculator</h1>
+        <input type="number" id="inputValue" placeholder="Enter value" />
+        <select id="unitSelect">
+            <option value="kmToMiles">Kilometers to Miles</option>
+            <option value="lbsToKg">Pounds to Kilograms</option>
+        </select>
+        <button id="convertButton">Convert</button>
+        <h2 id="result"></h2>
+        <button id="back-button" class="back-button">Back to Calculator</button>
+    </div>
+
+    <script>
+        document.getElementById('convertButton').onclick = function() {
+            const value = parseFloat(document.getElementById('inputValue').value);
+            const unit = document.getElementById('unitSelect').value;
+            let result;
+
+            if (unit === 'kmToMiles') result = (value * 0.621371).toFixed(2) + ' miles';
+            else if (unit === 'lbsToKg') result = (value * 0.453592).toFixed(2) + ' kg';
+            document.getElementById('result').textContent = result || 'Please enter a value';
+        };
+
+        document.getElementById('back-button').onclick = function() {
+            window.close(); 
+        };
+    </script>
+</body>
+</html>
